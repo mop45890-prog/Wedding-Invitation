@@ -1,0 +1,356 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Our Story | Tiffany & Ko</title>
+  <meta name="description" content="Tiffany & Ko 的愛情故事">
+  <style>
+    :root {
+      --ink: #2f3430;
+      --muted: #6f756e;
+      --paper: #fffaf4;
+      --linen: #f1eee7;
+      --moss: #405440;
+      --rose: #c7838a;
+      --gold: #b8935b;
+      --line: rgba(47, 52, 48, .16);
+      --shadow: 0 18px 50px rgba(53, 56, 48, .14);
+      font-family: "Noto Serif TC", "Microsoft JhengHei", serif;
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+
+    body {
+      margin: 0;
+      color: var(--ink);
+      background: linear-gradient(180deg, #fffaf4 0%, #f2eee7 48%, #fffaf4 100%);
+      letter-spacing: 0;
+    }
+
+    a { color: inherit; text-decoration: none; }
+
+    .site-nav {
+      position: fixed;
+      inset: 16px 16px auto auto;
+      z-index: 20;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      padding: 8px 10px;
+      color: #fff;
+      background: rgba(37, 45, 36, .34);
+      border: 1px solid rgba(255, 255, 255, .32);
+      border-radius: 999px;
+      backdrop-filter: blur(14px);
+    }
+
+    .brand {
+      display: none;
+      align-items: center;
+      gap: 8px;
+      font-family: Georgia, serif;
+      font-size: 15px;
+      white-space: nowrap;
+    }
+
+    .nav-action,
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 42px;
+      padding: 0 16px;
+      border-radius: 999px;
+      font-weight: 800;
+      white-space: nowrap;
+    }
+
+    .nav-action {
+      color: var(--moss);
+      background: rgba(255, 255, 255, .92);
+    }
+
+    .hero {
+      position: relative;
+      min-height: 82svh;
+      display: grid;
+      align-items: end;
+      isolation: isolate;
+      overflow: hidden;
+      color: #fff;
+      background: #3e493d;
+    }
+
+    .hero::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      z-index: -2;
+      background: url("gallery/photo-07.jpg") 50% 0% / cover no-repeat;
+    }
+
+    .hero::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      z-index: -1;
+      background: linear-gradient(180deg, rgba(18, 22, 17, .18), rgba(18, 22, 17, .78));
+    }
+
+    .wrap,
+    .hero-inner {
+      width: min(1040px, calc(100% - 40px));
+      margin: 0 auto;
+    }
+
+    .hero-inner {
+      padding: 180px 0 58px;
+    }
+
+    .kicker {
+      margin: 0 0 12px;
+      color: var(--rose);
+      font-size: 13px;
+      font-weight: 800;
+      letter-spacing: .18em;
+      text-transform: uppercase;
+    }
+
+    .hero .kicker {
+      color: rgba(255, 255, 255, .86);
+    }
+
+    h1,
+    h2 {
+      margin: 0;
+      font-weight: 600;
+      line-height: 1.1;
+    }
+
+    h1 {
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: clamp(58px, 11vw, 128px);
+    }
+
+    h2 {
+      color: var(--moss);
+      font-size: clamp(30px, 5vw, 58px);
+    }
+
+    .lead {
+      max-width: 760px;
+      margin: 18px 0 0;
+      color: var(--muted);
+      font-size: 17px;
+      line-height: 1.95;
+    }
+
+    .hero .lead {
+      color: rgba(255, 255, 255, .88);
+      font-size: clamp(17px, 2vw, 22px);
+    }
+
+    section {
+      padding: 82px 0;
+    }
+
+    .story-list {
+      display: grid;
+      gap: 14px;
+      margin-top: 32px;
+    }
+
+    .story-item {
+      display: grid;
+      grid-template-columns: minmax(190px, 230px) minmax(0, 1fr);
+      gap: 22px;
+      padding: 24px;
+      background: rgba(255, 255, 255, .74);
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      box-shadow: 0 12px 32px rgba(53, 56, 48, .08);
+    }
+
+    .story-date {
+      color: var(--gold);
+      font-family: Georgia, serif;
+      font-size: 24px;
+      line-height: 1.2;
+      overflow-wrap: anywhere;
+    }
+
+    .story-date span {
+      display: block;
+    }
+
+    .story-item h3 {
+      margin: 0 0 8px;
+      color: var(--moss);
+      font-size: 22px;
+    }
+
+    .story-item p {
+      margin: 0;
+      color: var(--muted);
+      line-height: 1.85;
+    }
+
+    .story-photos {
+      background: #fff;
+    }
+
+    .photo-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 14px;
+      margin-top: 32px;
+    }
+
+    .photo-grid img {
+      width: 100%;
+      height: 100%;
+      min-height: 260px;
+      border-radius: 8px;
+      object-fit: cover;
+      box-shadow: var(--shadow);
+    }
+
+    footer {
+      padding: 42px 20px;
+      color: rgba(255, 255, 255, .78);
+      background: #303a2f;
+      text-align: center;
+      line-height: 1.8;
+    }
+
+    @media (max-width: 760px) {
+      .site-nav {
+        inset: 10px 10px auto auto;
+        padding: 7px 8px;
+      }
+
+      .nav-action {
+        min-height: 38px;
+        padding: 0 13px;
+      }
+
+      .hero {
+        min-height: 78svh;
+      }
+
+      .hero::before {
+        background-position: 54% 0%;
+      }
+
+      .hero-inner {
+        padding: 150px 0 46px;
+      }
+
+      .story-item {
+        grid-template-columns: 1fr;
+      }
+
+      .photo-grid {
+        grid-template-columns: 1fr;
+      }
+
+      section {
+        padding: 58px 0;
+      }
+    }
+  </style>
+</head>
+<body>
+  <nav class="site-nav" aria-label="主要導覽">
+    <a class="brand" href="index.html"><span>Tiffany & Ko</span></a>
+    <a class="nav-action" href="index.html">回到首頁</a>
+  </nav>
+
+  <header class="hero">
+    <div class="hero-inner">
+      <p class="kicker">Our Story</p>
+      <h1>Love Story</h1>
+      <p class="lead">從第一次見面、遠距離、旅行與求婚，到即將一起走向婚禮，這是屬於我們的小小時間軸。</p>
+    </div>
+  </header>
+
+  <main>
+    <section>
+      <div class="wrap">
+        <p class="kicker">Timeline</p>
+        <h2>我們的故事</h2>
+        <p class="lead">謝謝每一段陪伴，也謝謝大家來參與我們的大日子。</p>
+        <div class="story-list">
+          <article class="story-item">
+            <div class="story-date">2019/10</div>
+            <div>
+              <h3>第一次相遇</h3>
+              <p>透過朋友介紹的我們，第一次在新時代百貨看見對方，男生完全不敢看女生，女生還以為男生身高有190公分；直到下一次相約KTV，孟辰被朋友推出包廂門只為了跟取餐的苡甄搭訕，才開始有了交集。</p>
+            </div>
+          </article>
+
+          <article class="story-item">
+            <div class="story-date">2020/04</div>
+            <div>
+              <h3>遠距離的開始</h3>
+              <p>鼓起勇氣告白，開始了6年的遠距離，分別在台北-台中、台北到台南、斗六到台南、台中到台南，最後又回來到台北與台中。</p>
+            </div>
+          </article>
+
+          <article class="story-item">
+            <div class="story-date"><span>2020/06</span><span>-2023/06</span></div>
+            <div>
+              <h3>一起生活的味道</h3>
+              <p>非常喜歡品嚐美食的兩人，愛上了台南的小吃，差點想在台南定居生活。孟辰也讓苡甄開始嘗試很多她不敢吃的東西，例如:生魚片、洋蔥、腰子、辣的食物等等。</p>
+            </div>
+          </article>
+
+          <article class="story-item">
+            <div class="story-date">2024/08</div>
+            <div>
+              <h3>總是遇見雨的旅行</h3>
+              <p>一起旅行的地方不算多，但是舉凡到嘉義、關子嶺、墾丁以及最不可能的澎湖，雨都能夠大到被當地人說第一次遇見。</p>
+            </div>
+          </article>
+
+          <article class="story-item">
+            <div class="story-date">2025/06</div>
+            <div>
+              <h3>雨中的求婚</h3>
+              <p>第一次一起出國，就被求婚了! 在苡甄最喜歡的美女與野獸城堡前，雨中單膝下跪的孟辰(沒錯又在下雨)，講完求婚誓言發現旁邊已站滿圍觀的群眾，還有日本人邊哭邊跟我們說恭喜。</p>
+            </div>
+          </article>
+
+          <article class="story-item">
+            <div class="story-date">2026/09.12</div>
+            <div>
+              <h3>我們的大日子</h3>
+              <p>謝謝大家參與我們的大日子，這場婚禮或許不大，但每個地方都是我們用心準備的成果；想將這份喜悅分享給每位親朋好友，這一天大家一起笑、一起敘舊，留下美好且深刻的回憶吧!</p>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="story-photos">
+      <div class="wrap">
+        <p class="kicker">Story Photos</p>
+        <h2>回憶照片</h2>
+        <p class="lead">把一路走來的片刻，留在這一天一起分享。</p>
+        <div class="photo-grid">
+          <img src="gallery/photo-01.jpg" alt="回憶照片 01" loading="lazy">
+          <img src="gallery/photo-07.jpg" alt="回憶照片 02" loading="lazy">
+          <img src="gallery/photo-18.jpg" alt="回憶照片 03" loading="lazy">
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <strong>Tiffany & Ko</strong><br>
+    Thank you for being part of our story.
+  </footer>
+</body>
+</html>
