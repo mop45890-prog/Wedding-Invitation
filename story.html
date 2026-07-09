@@ -1,4 +1,4 @@
-<!doctype html>
+﻿<!doctype html>
 <html lang="zh-Hant">
 <head>
   <meta charset="utf-8">
@@ -55,26 +55,22 @@
       white-space: nowrap;
     }
 
-    .nav-action,
-    .btn {
+    .nav-action {
       display: inline-flex;
       align-items: center;
       justify-content: center;
       min-height: 42px;
       padding: 0 16px;
       border-radius: 999px;
+      color: var(--moss);
+      background: rgba(255, 255, 255, .92);
       font-weight: 800;
       white-space: nowrap;
     }
 
-    .nav-action {
-      color: var(--moss);
-      background: rgba(255, 255, 255, .92);
-    }
-
     .hero {
       position: relative;
-      min-height: 82svh;
+      min-height: 58svh;
       display: grid;
       align-items: end;
       isolation: isolate;
@@ -88,7 +84,7 @@
       position: absolute;
       inset: 0;
       z-index: -2;
-      background: url("gallery/photo-07.jpg") 50% 0% / cover no-repeat;
+      background: url("gallery-web/story-20.jpg") 50% 45% / cover no-repeat;
     }
 
     .hero::after {
@@ -96,17 +92,17 @@
       position: absolute;
       inset: 0;
       z-index: -1;
-      background: linear-gradient(180deg, rgba(18, 22, 17, .18), rgba(18, 22, 17, .78));
+      background: linear-gradient(180deg, rgba(18, 22, 17, .2), rgba(18, 22, 17, .8));
     }
 
     .wrap,
     .hero-inner {
-      width: min(1040px, calc(100% - 40px));
+      width: min(1120px, calc(100% - 32px));
       margin: 0 auto;
     }
 
     .hero-inner {
-      padding: 180px 0 58px;
+      padding: 120px 0 42px;
     }
 
     .kicker {
@@ -141,7 +137,7 @@
 
     .lead {
       max-width: 760px;
-      margin: 18px 0 0;
+      margin: 12px 0 0;
       color: var(--muted);
       font-size: 17px;
       line-height: 1.95;
@@ -153,30 +149,31 @@
     }
 
     section {
-      padding: 82px 0;
+      padding: 48px 0;
     }
 
     .story-list {
       display: grid;
-      gap: 14px;
-      margin-top: 32px;
+      gap: 12px;
+      margin-top: 22px;
     }
 
     .story-item {
       display: grid;
-      grid-template-columns: minmax(190px, 230px) minmax(0, 1fr);
-      gap: 22px;
-      padding: 24px;
-      background: rgba(255, 255, 255, .74);
+      grid-template-columns: 132px minmax(0, 1fr) minmax(360px, 44%);
+      gap: 16px;
+      padding: 16px;
+      background: rgba(255, 255, 255, .78);
       border: 1px solid var(--line);
       border-radius: 8px;
-      box-shadow: 0 12px 32px rgba(53, 56, 48, .08);
+      box-shadow: 0 8px 22px rgba(53, 56, 48, .07);
     }
 
     .story-date {
+      order: 0;
       color: var(--gold);
       font-family: Georgia, serif;
-      font-size: 24px;
+      font-size: 21px;
       line-height: 1.2;
       overflow-wrap: anywhere;
     }
@@ -185,36 +182,76 @@
       display: block;
     }
 
-    .story-item h3 {
-      margin: 0 0 8px;
+    .story-copy h3 {
+      margin: 0 0 6px;
       color: var(--moss);
-      font-size: 22px;
+      font-size: 20px;
     }
 
-    .story-item p {
+    .story-copy {
+      order: 1;
+      align-self: center;
+    }
+
+    .story-copy p {
       margin: 0;
       color: var(--muted);
-      line-height: 1.85;
+      line-height: 1.72;
     }
 
-    .story-photos {
-      background: #fff;
+    .story-media {
+      display: contents;
     }
 
-    .photo-grid {
+    .story-gallery {
+      order: 2;
       display: grid;
-      grid-template-columns: repeat(3, minmax(0, 1fr));
-      gap: 14px;
-      margin-top: 32px;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 6px;
+      min-height: 0;
+      align-self: center;
     }
 
-    .photo-grid img {
+    .story-photo {
+      display: block;
+      padding: 0;
+      border: 0;
+      border-radius: 7px;
+      background: transparent;
+      cursor: zoom-in;
+      overflow: hidden;
+    }
+
+    .story-photo:focus-visible {
+      outline: 3px solid rgba(184, 147, 91, .46);
+      outline-offset: 3px;
+    }
+
+    .story-gallery img {
       width: 100%;
-      height: 100%;
-      min-height: 260px;
-      border-radius: 8px;
+      height: 150px;
+      display: block;
       object-fit: cover;
-      box-shadow: var(--shadow);
+      border-radius: 7px;
+      box-shadow: 0 8px 18px rgba(53, 56, 48, .1);
+      background: var(--linen);
+      transition: transform .18s ease, filter .18s ease;
+    }
+
+    .story-photo:hover img {
+      transform: scale(1.035);
+      filter: saturate(1.04);
+    }
+
+    .story-item.closing {
+      grid-template-columns: 132px minmax(0, 1fr);
+      background:
+        linear-gradient(135deg, rgba(184, 147, 91, .16), rgba(255, 255, 255, .72)),
+        rgba(255, 255, 255, .84);
+    }
+
+    .story-item.closing .story-copy {
+      max-width: 780px;
     }
 
     footer {
@@ -223,6 +260,58 @@
       background: #303a2f;
       text-align: center;
       line-height: 1.8;
+    }
+
+    .lightbox {
+      position: fixed;
+      inset: 0;
+      z-index: 60;
+      display: none;
+      place-items: center;
+      padding: 24px;
+      background: rgba(24, 25, 22, .82);
+    }
+
+    .lightbox.open {
+      display: grid;
+    }
+
+    .lightbox img {
+      max-width: min(1080px, 94vw);
+      max-height: 86vh;
+      display: block;
+      border-radius: 8px;
+      object-fit: contain;
+      box-shadow: 0 24px 70px rgba(0, 0, 0, .36);
+      background: #111;
+    }
+
+    .lightbox-close {
+      position: fixed;
+      top: 18px;
+      right: 18px;
+      width: 44px;
+      height: 44px;
+      border: 1px solid rgba(255, 255, 255, .36);
+      border-radius: 999px;
+      color: #fff;
+      background: rgba(0, 0, 0, .34);
+      cursor: pointer;
+      font-size: 28px;
+      line-height: 1;
+    }
+
+    @media (max-width: 900px) {
+      .story-item,
+      .story-item.closing {
+        grid-template-columns: 1fr;
+      }
+
+      .story-media {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 12px;
+      }
     }
 
     @media (max-width: 760px) {
@@ -237,27 +326,27 @@
       }
 
       .hero {
-        min-height: 78svh;
-      }
-
-      .hero::before {
-        background-position: 54% 0%;
+        min-height: 54svh;
       }
 
       .hero-inner {
-        padding: 150px 0 46px;
+        padding: 118px 0 34px;
       }
 
       .story-item {
-        grid-template-columns: 1fr;
+        padding: 14px;
       }
 
-      .photo-grid {
-        grid-template-columns: 1fr;
+      .story-gallery {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+
+      .story-gallery img {
+        height: 132px;
       }
 
       section {
-        padding: 58px 0;
+        padding: 38px 0;
       }
     }
   </style>
@@ -285,47 +374,87 @@
         <div class="story-list">
           <article class="story-item">
             <div class="story-date">2019/10</div>
-            <div>
-              <h3>第一次相遇</h3>
-              <p>透過朋友介紹的我們，第一次在新時代百貨看見對方，男生完全不敢看女生，女生還以為男生身高有190公分；直到下一次相約KTV，孟辰被朋友推出包廂門只為了跟取餐的苡甄搭訕，才開始有了交集。</p>
+            <div class="story-media">
+              <div class="story-gallery">
+                <button class="story-photo" type="button"><img src="gallery-web/story-01.jpg" alt="第一次相遇照片 1" loading="lazy"></button>
+                <button class="story-photo" type="button"><img src="gallery-web/story-02.jpg" alt="第一次相遇照片 2" loading="lazy"></button>
+                <button class="story-photo" type="button"><img src="gallery-web/story-03.jpg" alt="第一次相遇照片 3" loading="lazy"></button>
+                <button class="story-photo" type="button"><img src="gallery-web/story-04.jpg" alt="第一次相遇照片 4" loading="lazy"></button>
+              </div>
+              <div class="story-copy">
+                <h3>第一次相遇</h3>
+                <p>透過朋友介紹的我們，第一次在新時代百貨看見對方，男生完全不敢看女生，女生還以為男生身高有190公分；直到下一次相約KTV，孟辰被朋友推出包廂門只為了跟取餐的苡甄搭訕，才開始有了交集。</p>
+              </div>
             </div>
           </article>
 
           <article class="story-item">
             <div class="story-date">2020/04</div>
-            <div>
-              <h3>遠距離的開始</h3>
-              <p>鼓起勇氣告白，開始了6年的遠距離，分別在台北-台中、台北到台南、斗六到台南、台中到台南，最後又回來到台北與台中。</p>
+            <div class="story-media">
+              <div class="story-gallery">
+                <button class="story-photo" type="button"><img src="gallery-web/story-05.jpg" alt="遠距離的開始照片 1" loading="lazy"></button>
+                <button class="story-photo" type="button"><img src="gallery-web/story-06.jpg" alt="遠距離的開始照片 2" loading="lazy"></button>
+                <button class="story-photo" type="button"><img src="gallery-web/story-07.jpg" alt="遠距離的開始照片 3" loading="lazy"></button>
+                <button class="story-photo" type="button"><img src="gallery-web/story-08.jpg" alt="遠距離的開始照片 4" loading="lazy"></button>
+              </div>
+              <div class="story-copy">
+                <h3>遠距離的開始</h3>
+                <p>鼓起勇氣告白，開始了6年的遠距離，分別在台北-台中、台北到台南、斗六到台南、台中到台南，最後又回來到台北與台中。</p>
+              </div>
             </div>
           </article>
 
           <article class="story-item">
             <div class="story-date"><span>2020/06</span><span>-2023/06</span></div>
-            <div>
-              <h3>一起生活的味道</h3>
-              <p>非常喜歡品嚐美食的兩人，愛上了台南的小吃，差點想在台南定居生活。孟辰也讓苡甄開始嘗試很多她不敢吃的東西，例如:生魚片、洋蔥、腰子、辣的食物等等。</p>
+            <div class="story-media">
+              <div class="story-gallery">
+                <button class="story-photo" type="button"><img src="gallery-web/story-09.jpg" alt="一起生活的味道照片 1" loading="lazy"></button>
+                <button class="story-photo" type="button"><img src="gallery-web/story-10.jpg" alt="一起生活的味道照片 2" loading="lazy"></button>
+                <button class="story-photo" type="button"><img src="gallery-web/story-11.jpg" alt="一起生活的味道照片 3" loading="lazy"></button>
+                <button class="story-photo" type="button"><img src="gallery-web/story-12.jpg" alt="一起生活的味道照片 4" loading="lazy"></button>
+              </div>
+              <div class="story-copy">
+                <h3>一起生活的味道</h3>
+                <p>非常喜歡品嚐美食的兩人，愛上了台南的小吃，差點想在台南定居生活。孟辰也讓苡甄開始嘗試很多她不敢吃的東西，例如:生魚片、洋蔥、腰子、辣的食物等等。</p>
+              </div>
             </div>
           </article>
 
           <article class="story-item">
             <div class="story-date">2024/08</div>
-            <div>
-              <h3>總是遇見雨的旅行</h3>
-              <p>一起旅行的地方不算多，但是舉凡到嘉義、關子嶺、墾丁以及最不可能的澎湖，雨都能夠大到被當地人說第一次遇見。</p>
+            <div class="story-media">
+              <div class="story-gallery">
+                <button class="story-photo" type="button"><img src="gallery-web/story-13.jpg" alt="總是遇見雨的旅行照片 1" loading="lazy"></button>
+                <button class="story-photo" type="button"><img src="gallery-web/story-14.jpg" alt="總是遇見雨的旅行照片 2" loading="lazy"></button>
+                <button class="story-photo" type="button"><img src="gallery-web/story-15.jpg" alt="總是遇見雨的旅行照片 3" loading="lazy"></button>
+                <button class="story-photo" type="button"><img src="gallery-web/story-16.jpg" alt="總是遇見雨的旅行照片 4" loading="lazy"></button>
+              </div>
+              <div class="story-copy">
+                <h3>總是遇見雨的旅行</h3>
+                <p>一起旅行的地方不算多，但是舉凡到嘉義、關子嶺、墾丁以及最不可能的澎湖，雨都能夠大到被當地人說第一次遇見。</p>
+              </div>
             </div>
           </article>
 
           <article class="story-item">
             <div class="story-date">2025/06</div>
-            <div>
-              <h3>雨中的求婚</h3>
-              <p>第一次一起出國，就被求婚了! 在苡甄最喜歡的美女與野獸城堡前，雨中單膝下跪的孟辰(沒錯又在下雨)，講完求婚誓言發現旁邊已站滿圍觀的群眾，還有日本人邊哭邊跟我們說恭喜。</p>
+            <div class="story-media">
+              <div class="story-gallery">
+                <button class="story-photo" type="button"><img src="gallery-web/story-17.jpg" alt="雨中的求婚照片 1" loading="lazy"></button>
+                <button class="story-photo" type="button"><img src="gallery-web/story-18.jpg" alt="雨中的求婚照片 2" loading="lazy"></button>
+                <button class="story-photo" type="button"><img src="gallery-web/story-19.jpg" alt="雨中的求婚照片 3" loading="lazy"></button>
+                <button class="story-photo" type="button"><img src="gallery-web/story-20.jpg" alt="雨中的求婚照片 4" loading="lazy"></button>
+              </div>
+              <div class="story-copy">
+                <h3>雨中的求婚</h3>
+                <p>第一次一起出國，就被求婚了! 在苡甄最喜歡的美女與野獸城堡前，雨中單膝下跪的孟辰(沒錯又在下雨)，講完求婚誓言發現旁邊已站滿圍觀的群眾，還有日本人邊哭邊跟我們說恭喜。</p>
+              </div>
             </div>
           </article>
 
-          <article class="story-item">
+          <article class="story-item closing">
             <div class="story-date">2026/09.12</div>
-            <div>
+            <div class="story-copy">
               <h3>我們的大日子</h3>
               <p>謝謝大家參與我們的大日子，這場婚禮或許不大，但每個地方都是我們用心準備的成果；想將這份喜悅分享給每位親朋好友，這一天大家一起笑、一起敘舊，留下美好且深刻的回憶吧!</p>
             </div>
@@ -333,24 +462,47 @@
         </div>
       </div>
     </section>
+    </main>
 
-    <section class="story-photos">
-      <div class="wrap">
-        <p class="kicker">Story Photos</p>
-        <h2>回憶照片</h2>
-        <p class="lead">把一路走來的片刻，留在這一天一起分享。</p>
-        <div class="photo-grid">
-          <img src="gallery/photo-01.jpg" alt="回憶照片 01" loading="lazy">
-          <img src="gallery/photo-07.jpg" alt="回憶照片 02" loading="lazy">
-          <img src="gallery/photo-18.jpg" alt="回憶照片 03" loading="lazy">
-        </div>
-      </div>
-    </section>
-  </main>
+  <div class="lightbox" id="storyLightbox" aria-hidden="true" role="dialog" aria-label="放大照片">
+    <button class="lightbox-close" id="lightboxClose" type="button" aria-label="關閉照片">×</button>
+    <img id="lightboxImage" src="" alt="">
+  </div>
 
   <footer>
     <strong>Tiffany & Ko</strong><br>
     Thank you for being part of our story.
   </footer>
+  <script>
+    const storyLightbox = document.querySelector("#storyLightbox");
+    const lightboxImage = document.querySelector("#lightboxImage");
+    const lightboxClose = document.querySelector("#lightboxClose");
+
+    function openLightbox(image) {
+      lightboxImage.src = image.src;
+      lightboxImage.alt = image.alt;
+      storyLightbox.classList.add("open");
+      storyLightbox.setAttribute("aria-hidden", "false");
+    }
+
+    function closeLightbox() {
+      storyLightbox.classList.remove("open");
+      storyLightbox.setAttribute("aria-hidden", "true");
+      lightboxImage.src = "";
+      lightboxImage.alt = "";
+    }
+
+    document.querySelectorAll(".story-photo").forEach((button) => {
+      button.addEventListener("click", () => openLightbox(button.querySelector("img")));
+    });
+
+    lightboxClose.addEventListener("click", closeLightbox);
+    storyLightbox.addEventListener("click", (event) => {
+      if (event.target === storyLightbox) closeLightbox();
+    });
+    document.addEventListener("keydown", (event) => {
+      if (event.key === "Escape") closeLightbox();
+    });
+  </script>
 </body>
 </html>
