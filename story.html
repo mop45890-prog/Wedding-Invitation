@@ -84,7 +84,7 @@
       position: absolute;
       inset: 0;
       z-index: -2;
-      background: url("gallery-web/story-20.jpg") 50% 45% / cover no-repeat;
+      background: url("gallery-web/photo-21.jpg") 50% 45% / cover no-repeat;
     }
 
     .hero::after {
@@ -212,21 +212,6 @@
       align-self: center;
     }
 
-    .story-photo {
-      display: block;
-      padding: 0;
-      border: 0;
-      border-radius: 7px;
-      background: transparent;
-      cursor: zoom-in;
-      overflow: hidden;
-    }
-
-    .story-photo:focus-visible {
-      outline: 3px solid rgba(184, 147, 91, .46);
-      outline-offset: 3px;
-    }
-
     .story-gallery img {
       width: 100%;
       height: 150px;
@@ -235,16 +220,10 @@
       border-radius: 7px;
       box-shadow: 0 8px 18px rgba(53, 56, 48, .1);
       background: var(--linen);
-      transition: transform .18s ease, filter .18s ease;
-    }
-
-    .story-photo:hover img {
-      transform: scale(1.035);
-      filter: saturate(1.04);
     }
 
     .story-item.closing {
-      grid-template-columns: 132px minmax(0, 1fr);
+      grid-template-columns: 132px minmax(0, 1fr) minmax(360px, 44%);
       background:
         linear-gradient(135deg, rgba(184, 147, 91, .16), rgba(255, 255, 255, .72)),
         rgba(255, 255, 255, .84);
@@ -254,51 +233,24 @@
       max-width: 780px;
     }
 
+    .closing-photo {
+      order: 2;
+      align-self: center;
+      width: 100%;
+      height: 180px;
+      display: block;
+      border-radius: 7px;
+      object-fit: cover;
+      box-shadow: 0 8px 18px rgba(53, 56, 48, .1);
+      background: var(--linen);
+    }
+
     footer {
       padding: 42px 20px;
       color: rgba(255, 255, 255, .78);
       background: #303a2f;
       text-align: center;
       line-height: 1.8;
-    }
-
-    .lightbox {
-      position: fixed;
-      inset: 0;
-      z-index: 60;
-      display: none;
-      place-items: center;
-      padding: 24px;
-      background: rgba(24, 25, 22, .82);
-    }
-
-    .lightbox.open {
-      display: grid;
-    }
-
-    .lightbox img {
-      max-width: min(1080px, 94vw);
-      max-height: 86vh;
-      display: block;
-      border-radius: 8px;
-      object-fit: contain;
-      box-shadow: 0 24px 70px rgba(0, 0, 0, .36);
-      background: #111;
-    }
-
-    .lightbox-close {
-      position: fixed;
-      top: 18px;
-      right: 18px;
-      width: 44px;
-      height: 44px;
-      border: 1px solid rgba(255, 255, 255, .36);
-      border-radius: 999px;
-      color: #fff;
-      background: rgba(0, 0, 0, .34);
-      cursor: pointer;
-      font-size: 28px;
-      line-height: 1;
     }
 
     @media (max-width: 900px) {
@@ -376,10 +328,10 @@
             <div class="story-date">2019/10</div>
             <div class="story-media">
               <div class="story-gallery">
-                <button class="story-photo" type="button"><img src="gallery-web/story-01.jpg" alt="第一次相遇照片 1" loading="lazy"></button>
-                <button class="story-photo" type="button"><img src="gallery-web/story-02.jpg" alt="第一次相遇照片 2" loading="lazy"></button>
-                <button class="story-photo" type="button"><img src="gallery-web/story-03.jpg" alt="第一次相遇照片 3" loading="lazy"></button>
-                <button class="story-photo" type="button"><img src="gallery-web/story-04.jpg" alt="第一次相遇照片 4" loading="lazy"></button>
+                <img src="gallery-web/story-01.jpg" alt="第一次相遇照片 1" loading="lazy">
+                <img src="gallery-web/story-02.jpg" alt="第一次相遇照片 2" loading="lazy">
+                <img src="gallery-web/story-03.jpg" alt="第一次相遇照片 3" loading="lazy">
+                <img src="gallery-web/story-04.jpg" alt="第一次相遇照片 4" loading="lazy">
               </div>
               <div class="story-copy">
                 <h3>第一次相遇</h3>
@@ -392,10 +344,10 @@
             <div class="story-date">2020/04</div>
             <div class="story-media">
               <div class="story-gallery">
-                <button class="story-photo" type="button"><img src="gallery-web/story-05.jpg" alt="遠距離的開始照片 1" loading="lazy"></button>
-                <button class="story-photo" type="button"><img src="gallery-web/story-06.jpg" alt="遠距離的開始照片 2" loading="lazy"></button>
-                <button class="story-photo" type="button"><img src="gallery-web/story-07.jpg" alt="遠距離的開始照片 3" loading="lazy"></button>
-                <button class="story-photo" type="button"><img src="gallery-web/story-08.jpg" alt="遠距離的開始照片 4" loading="lazy"></button>
+                <img src="gallery-web/story-05.jpg" alt="遠距離的開始照片 1" loading="lazy">
+                <img src="gallery-web/story-06.jpg" alt="遠距離的開始照片 2" loading="lazy">
+                <img src="gallery-web/story-07.jpg" alt="遠距離的開始照片 3" loading="lazy">
+                <img src="gallery-web/story-08.jpg" alt="遠距離的開始照片 4" loading="lazy">
               </div>
               <div class="story-copy">
                 <h3>遠距離的開始</h3>
@@ -408,10 +360,10 @@
             <div class="story-date"><span>2020/06</span><span>-2023/06</span></div>
             <div class="story-media">
               <div class="story-gallery">
-                <button class="story-photo" type="button"><img src="gallery-web/story-09.jpg" alt="一起生活的味道照片 1" loading="lazy"></button>
-                <button class="story-photo" type="button"><img src="gallery-web/story-10.jpg" alt="一起生活的味道照片 2" loading="lazy"></button>
-                <button class="story-photo" type="button"><img src="gallery-web/story-11.jpg" alt="一起生活的味道照片 3" loading="lazy"></button>
-                <button class="story-photo" type="button"><img src="gallery-web/story-12.jpg" alt="一起生活的味道照片 4" loading="lazy"></button>
+                <img src="gallery-web/story-09.jpg" alt="一起生活的味道照片 1" loading="lazy">
+                <img src="gallery-web/story-10.jpg" alt="一起生活的味道照片 2" loading="lazy">
+                <img src="gallery-web/story-11.jpg" alt="一起生活的味道照片 3" loading="lazy">
+                <img src="gallery-web/story-12.jpg" alt="一起生活的味道照片 4" loading="lazy">
               </div>
               <div class="story-copy">
                 <h3>一起生活的味道</h3>
@@ -424,10 +376,10 @@
             <div class="story-date">2024/08</div>
             <div class="story-media">
               <div class="story-gallery">
-                <button class="story-photo" type="button"><img src="gallery-web/story-13.jpg" alt="總是遇見雨的旅行照片 1" loading="lazy"></button>
-                <button class="story-photo" type="button"><img src="gallery-web/story-14.jpg" alt="總是遇見雨的旅行照片 2" loading="lazy"></button>
-                <button class="story-photo" type="button"><img src="gallery-web/story-15.jpg" alt="總是遇見雨的旅行照片 3" loading="lazy"></button>
-                <button class="story-photo" type="button"><img src="gallery-web/story-16.jpg" alt="總是遇見雨的旅行照片 4" loading="lazy"></button>
+                <img src="gallery-web/story-13.jpg" alt="總是遇見雨的旅行照片 1" loading="lazy">
+                <img src="gallery-web/story-14.jpg" alt="總是遇見雨的旅行照片 2" loading="lazy">
+                <img src="gallery-web/story-15.jpg" alt="總是遇見雨的旅行照片 3" loading="lazy">
+                <img src="gallery-web/story-16.jpg" alt="總是遇見雨的旅行照片 4" loading="lazy">
               </div>
               <div class="story-copy">
                 <h3>總是遇見雨的旅行</h3>
@@ -440,10 +392,10 @@
             <div class="story-date">2025/06</div>
             <div class="story-media">
               <div class="story-gallery">
-                <button class="story-photo" type="button"><img src="gallery-web/story-17.jpg" alt="雨中的求婚照片 1" loading="lazy"></button>
-                <button class="story-photo" type="button"><img src="gallery-web/story-18.jpg" alt="雨中的求婚照片 2" loading="lazy"></button>
-                <button class="story-photo" type="button"><img src="gallery-web/story-19.jpg" alt="雨中的求婚照片 3" loading="lazy"></button>
-                <button class="story-photo" type="button"><img src="gallery-web/story-20.jpg" alt="雨中的求婚照片 4" loading="lazy"></button>
+                <img src="gallery-web/story-17.jpg" alt="雨中的求婚照片 1" loading="lazy">
+                <img src="gallery-web/story-18.jpg" alt="雨中的求婚照片 2" loading="lazy">
+                <img src="gallery-web/story-19.jpg" alt="雨中的求婚照片 3" loading="lazy">
+                <img src="gallery-web/story-20.jpg" alt="雨中的求婚照片 4" loading="lazy">
               </div>
               <div class="story-copy">
                 <h3>雨中的求婚</h3>
@@ -458,51 +410,15 @@
               <h3>我們的大日子</h3>
               <p>謝謝大家參與我們的大日子，這場婚禮或許不大，但每個地方都是我們用心準備的成果；想將這份喜悅分享給每位親朋好友，這一天大家一起笑、一起敘舊，留下美好且深刻的回憶吧!</p>
             </div>
+            <img class="closing-photo" src="gallery-web/photo-22.jpg" alt="我們的大日子照片" loading="lazy">
           </article>
         </div>
       </div>
     </section>
-    </main>
-
-  <div class="lightbox" id="storyLightbox" aria-hidden="true" role="dialog" aria-label="放大照片">
-    <button class="lightbox-close" id="lightboxClose" type="button" aria-label="關閉照片">×</button>
-    <img id="lightboxImage" src="" alt="">
-  </div>
-
+  </main>
   <footer>
     <strong>Tiffany & Ko</strong><br>
     Thank you for being part of our story.
   </footer>
-  <script>
-    const storyLightbox = document.querySelector("#storyLightbox");
-    const lightboxImage = document.querySelector("#lightboxImage");
-    const lightboxClose = document.querySelector("#lightboxClose");
-
-    function openLightbox(image) {
-      lightboxImage.src = image.src;
-      lightboxImage.alt = image.alt;
-      storyLightbox.classList.add("open");
-      storyLightbox.setAttribute("aria-hidden", "false");
-    }
-
-    function closeLightbox() {
-      storyLightbox.classList.remove("open");
-      storyLightbox.setAttribute("aria-hidden", "true");
-      lightboxImage.src = "";
-      lightboxImage.alt = "";
-    }
-
-    document.querySelectorAll(".story-photo").forEach((button) => {
-      button.addEventListener("click", () => openLightbox(button.querySelector("img")));
-    });
-
-    lightboxClose.addEventListener("click", closeLightbox);
-    storyLightbox.addEventListener("click", (event) => {
-      if (event.target === storyLightbox) closeLightbox();
-    });
-    document.addEventListener("keydown", (event) => {
-      if (event.key === "Escape") closeLightbox();
-    });
-  </script>
 </body>
 </html>
