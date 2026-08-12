@@ -1503,13 +1503,13 @@
 
 .aisle-label {
   position: absolute;
-  left: 50%;
-  top: 116px;
-  transform: translateX(-50%);
+  left: 63%;
+  top: 28%;
+  transform: translate(-50%, -50%);
   color: rgba(64, 84, 64, .42);
   font-size: 11px;
   letter-spacing: .24em;
-  writing-mode: vertical-rl;
+  white-space: nowrap;
 }
 
 .table-dot {
@@ -1528,12 +1528,10 @@
   box-shadow: 0 8px 22px rgba(53, 56, 48, .12);
   font-size: 18px;
   font-weight: 800;
-  cursor: pointer;
+  cursor: default;
   transition: transform .2s ease, color .2s ease, background .2s ease, box-shadow .2s ease;
 }
 
-.table-dot:hover,
-.table-dot:focus-visible,
 .table-dot.active {
   z-index: 2;
   transform: translate(-50%, -50%) scale(1.1);
@@ -1788,7 +1786,7 @@
 <p class="kicker">Seat Search</p>
 <h2>座位查詢</h2>
 </div>
-<p class="seat-helper">輸入姓名即可查詢桌號；若同名有兩席，結果會顯示席位數。查詢後右側桌位會同步亮起。</p>
+<p class="seat-helper">輸入姓名即可查詢桌號，查詢後右側桌位會同步亮起。</p>
 <div class="seat-form">
 <input aria-label="請輸入姓名" autocomplete="name" id="seatName" placeholder="請輸入姓名"/>
 <button class="btn primary" id="seatButton" type="button">查詢</button>
@@ -1797,24 +1795,23 @@
 </div>
 <div aria-label="婚宴桌位平面圖" class="floor-plan-panel">
 <h3 class="floor-plan-title">婚宴桌位圖</h3>
-<p class="floor-plan-note">舞台／新人由上方進場・點擊桌號可查看該桌名單</p>
+<p class="floor-plan-note">舞台位於上方・查詢姓名後對應桌位會亮起</p>
 <div class="floor-plan" id="floorPlan">
-<div class="couple-flow">女方 ← 新人進場 → 男方</div>
 <div class="aisle-label">中央走道</div>
-<button class="table-dot main-table" data-table="1" style="--x:50%;--y:11%" type="button">主桌</button>
-<button class="table-dot" data-table="6" data-display-table="7" style="--x:16%;--y:27%" type="button">7</button>
-<button class="table-dot" data-table="5" data-display-table="6" style="--x:43%;--y:34%" type="button">6</button>
-<button class="table-dot" data-table="2" style="--x:82%;--y:27%" type="button">2</button>
-<button class="table-dot" data-table="4" data-display-table="5" style="--x:16%;--y:43%" type="button">5</button>
-<button class="table-dot" data-table="12" data-display-table="13" style="--x:43%;--y:49%" type="button">13</button>
-<button class="table-dot" data-table="11" data-display-table="12" style="--x:82%;--y:43%" type="button">12</button>
-<button class="table-dot" data-table="3" style="--x:16%;--y:59%" type="button">3</button>
-<button class="table-dot" data-table="13" data-display-table="15" style="--x:43%;--y:65%" type="button">15</button>
-<button class="table-dot" data-table="7" data-display-table="8" style="--x:82%;--y:59%" type="button">8</button>
-<button class="table-dot" data-table="14" data-display-table="16" style="--x:16%;--y:75%" type="button">16</button>
-<button class="table-dot" data-table="10" data-display-table="11" style="--x:43%;--y:82%" type="button">11</button>
-<button class="table-dot" data-table="8" data-display-table="9" style="--x:82%;--y:75%" type="button">9</button>
-<button class="table-dot" data-table="9" data-display-table="10" style="--x:16%;--y:91%" type="button">10</button>
+<div class="table-dot main-table" data-table="1" style="--x:50%;--y:11%">主桌</div>
+<div class="table-dot" data-table="6" style="--x:16%;--y:27%">2</div>
+<div class="table-dot" data-table="5" style="--x:43%;--y:34%">8</div>
+<div class="table-dot" data-table="2" style="--x:82%;--y:27%">12</div>
+<div class="table-dot" data-table="4" style="--x:16%;--y:43%">3</div>
+<div class="table-dot" data-table="12" style="--x:43%;--y:49%">9</div>
+<div class="table-dot" data-table="11" style="--x:82%;--y:43%">13</div>
+<div class="table-dot" data-table="3" style="--x:16%;--y:59%">5</div>
+<div class="table-dot" data-table="13" style="--x:43%;--y:65%">10</div>
+<div class="table-dot" data-table="7" style="--x:82%;--y:59%">15</div>
+<div class="table-dot" data-table="14" style="--x:16%;--y:75%">6</div>
+<div class="table-dot" data-table="10" style="--x:43%;--y:82%">11</div>
+<div class="table-dot" data-table="8" style="--x:82%;--y:75%">16</div>
+<div class="table-dot" data-table="9" style="--x:16%;--y:91%">7</div>
 </div>
 </div>
 </div>
@@ -1871,7 +1868,7 @@
       3: ["柯妤柔", "孫儷嫚", "孫靖倫", "洪語韓", "石井由佳", "孫治國", "孫以翔", "孫以恩", "賴秀菊", "祁若茜"],
       4: ["逄麒祿", "逄若喬", "李博凱", "卉莉幹部1", "卉莉幹部2", "卉莉幹部3", "孫兆扆", "外勞2", "Anita"],
       5: ["柯白君", "許智傑", "許虹貞", "許慈芸", "陳昱揚", "陳韻詞", "柯紅詩", "楊世光", "柯青花", "大姑"],
-      6: ["李麗櫻", "柯綺紡", "柯學嶺", "柯學達", "二伯母", "柯淳介", "柯聿宣", "孫惠玲", "林麗雲", "陳明棋"],
+      6: ["李麗櫻", "柯綺紡", "柯學嶺", "柯學達", "二伯母", "柯淳介", "柯聿軒", "孫惠玲", "林麗雲", "陳明棋"],
       7: ["石宇崴", "石宇崴", "張淯婷", "陳榆千", "陳榆千", "陳冠妤", "廖千惠", "董以琳", "董以琳", "廖千惠"],
       8: ["粘宜婷", "廖俊信", "莊頻衣", "張斐舒", "胡凱欣", "凃嘉真", "凃嘉真", "陳瑀柔", "黃懷萱", "黃懷萱"],
       9: ["王宣崎", "陳彥廷", "陳彥廷", "武育瑞", "王宣崎", "林繼君", "林祐民", "林瑾銳", "張景綸", "陳緯仲", "林繼君"],
@@ -1894,22 +1891,9 @@
     }
 
     function tableLabel(tableNumber) {
-      const displayTableNumbers = { 1: 1, 2: 2, 3: 3, 4: 5, 5: 6, 6: 7, 7: 8, 8: 9, 9: 10, 10: 11, 11: 12, 12: 13, 13: 15, 14: 16 };
+      const displayTableNumbers = { 1: 1, 6: 2, 4: 3, 3: 5, 14: 6, 9: 7, 5: 8, 12: 9, 13: 10, 10: 11, 2: 12, 11: 13, 7: 15, 8: 16 };
       const displayNumber = displayTableNumbers[Number(tableNumber)];
-      return Number(tableNumber) === 1 ? "主桌（第1桌）" : `第${displayNumber}桌`;
-    }
-
-    function showTable(tableNumber) {
-      const guests = seating[tableNumber] || [];
-      const counts = guests.reduce((result, guest) => {
-        result[guest] = (result[guest] || 0) + 1;
-        return result;
-      }, {});
-      const guestList = Object.entries(counts)
-        .map(([guest, count]) => `${escapeHtml(guest)}${count > 1 ? ` × ${count}` : ""}`)
-        .join("、");
-      seatResult.innerHTML = `<div class="seat-match"><strong>${tableLabel(tableNumber)}</strong><br><small>${guestList}</small></div>`;
-      highlightTables([tableNumber]);
+      return `第${displayNumber}桌`;
     }
 
     function searchSeat() {
@@ -1942,8 +1926,8 @@
 
       seatResult.innerHTML = matches.map((match) => `
         <div class="seat-match">
-          <strong>${escapeHtml(match.name)}｜${tableLabel(match.tableNumber)}</strong><br>
-          <small>${match.seats > 1 ? `此姓名共有 ${match.seats} 席` : "座位已確認"}</small>
+          <strong>${escapeHtml(match.name)}｜${tableLabel(match.tableNumber)}</strong>
+          ${match.seats > 1 ? `<br><small>此姓名共有 ${match.seats} 個位置</small>` : ""}
         </div>
       `).join("");
       highlightTables(matches.map((match) => match.tableNumber));
@@ -1959,7 +1943,6 @@
         highlightTables();
       }
     });
-    tableButtons.forEach((button) => button.addEventListener("click", () => showTable(button.dataset.table)));
 
     const lightbox = document.querySelector("#lightbox");
     const lightboxImage = document.querySelector("#lightboxImage");
